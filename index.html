@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para Ti Moshito ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* PANTALLAS */
+.screen {
+    display: none;
+    width: 380px;
+}
+.active {
+    display: block;
+}
+
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.08);
+    padding: 25px;
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+/* BOTONES */
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #ff4b6e, #ff758c);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+button:hover {
+    transform: scale(1.05);
+}
+
+/* CHAT */
+.chat {
+    height: 300px;
+    overflow-y: auto;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.msg {
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 15px;
+    max-width: 70%;
+}
+.me {
+    background: #ff4b6e;
+    margin-left: auto;
+}
+.her {
+    background: #2a2a40;
+}
+
+/* GALERIA */
+.galeria {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.galeria img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* TEXTO */
+#razon {
+    margin-top: 10px;
+    color: #ffccd5;
+}
+
+/* CORAZONES */
+.heart {
+    position: fixed;
+    top: -10px;
+    animation: fall 5s linear infinite;
+}
+.balloon {
+    position: fixed;
+    bottom: -50px;
+    animation: subir 6s linear infinite;
+}
+
+@keyframes fall {
+    to { transform: translateY(100vh); }
+}
+@keyframes subir {
+    to { transform: translateY(-110vh); }
+}
+
+/* FINAL */
+#final {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+}
+
+#final h1 {
+    font-size: 55px;
+    color:#ff4b6e;
+    animation: zoom 1s infinite alternate;
+}
+
+@keyframes zoom {
+    from { transform: scale(1);}
+    to { transform: scale(1.2);}
+}
+
+.volverFinal {
+    margin-top: 20px;
+    width: 200px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="login" class="screen active">
+    <div class="card">
+        <h2>🔐 Acceso</h2>
+        <p>Para ti, mi amor ❤️</p>
+        <input id="clave" style="padding:10px;border-radius:10px;border:none;">
+        <button onclick="entrar()">Entrar</button>
+    </div>
+</div>
+
+<!-- MENU -->
+<div id="menu" class="screen">
+    <div class="card">
+        <h2>Feliz Cumpleaños ❤️</h2>
+
+        <button onclick="ir('chat')">Mensajitos</button>
+        <button onclick="ir('carta')">Cartita</button>
+        <button onclick="ir('tiempo')">Tiempo Juntos</button>
+        <button onclick="ir('fotos')">Nuestras fotos</button>
+        <button onclick="darRazon()">Una razón</button>
+        <button onclick="final()">🎁 Sorpresa</button>
+
+        <div id="razon"></div>
+    </div>
+</div>
+
+<!-- CHAT -->
+<div id="chat" class="screen">
+    <div class="card">
+        <h3>Mi Amor 🥰</h3>
+        <div class="chat" id="chatBox"></div>
+        <button onclick="ir('menu')">⬅ Volver</button>
+    </div>
+</div>
+
+<!-- CARTA -->
+<div id="carta" class="screen">
+    <div class="card">
+        <h3>💌 Para ti Amor</h3>
+        <p style="text-align:left;">
+        Feliz cumpleaños amorcitooo 🥳  
+        Ya 18 años corazón, que rápido pasa el tiempo
+        mi vida, ya creció mi princesita 🥺, pero para
+        mi siempre serás mi bebé tikititita, estoy 
+        demasiado orgulloso de ti corazón, por como 
+        te esfuerzas en cumplir tus logros y no te rindes,
+        tiii amuuuu muchísimo, felicidades mi vida, espero
+        que cumplas muchos añitos más, y que Diosito 
+        te bendiga corazón 🥺❤️
+        </p>
+        <button onclick="ir('menu')">⬅ Volver</button>
+    </div>
+</div>
+
+<!-- TIEMPO -->
+<div id="tiempo" class="screen">
+    <div class="card">
+        <h3>Nosotros</h3>
+        <p id="contador"></p>
+        <button onclick="ir('menu')">⬅ Volver</button>
+    </div>
+</div>
+
+<!-- FOTOS -->
+<div id="fotos" class="screen">
+    <div class="card">
+        <h3>Para ti mi amor ❤️</h3>
+        <div class="galeria">
+            <img src="Amor (5).png">
+            <img src="Amor.png">
+            <img src="moshito.jpeg">
+            <img src="Amor (4).png">
+        </div>
+        <button onclick="ir('menu')">⬅ Volver</button>
+    </div>
+</div>
+
+<!-- FINAL -->
+<div id="final">
+    <h1>TE AMO ❤️</h1>
+    <p>Feliz cumpleaños mi vida 🎂</p>
+    <button class="volverFinal" onclick="cerrarFinal()">⬅ Volver</button>
+</div>
+
+<audio id="music" loop>
+    <source src="Coldplay - Sparks - Instrumental (NO VOICE!).mp3">
+</audio>
+
+<script>
+
+// LOGIN
+function entrar(){
+    let c = document.getElementById("clave").value.toLowerCase();
+    if(c === "amor" || c === "moshito"){
+        cambiar("menu");
+        document.getElementById("music").play();
+        iniciarChat();
+    } else {
+        alert("Incorrecto 😅");
+    }
+}
+
+// CAMBIO
+function cambiar(id){
+    document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+function ir(id){ cambiar(id); }
+
+// CHAT
+const mensajes = [
+["me","Holaaa mi amor 🥺❤️"],
+["her","Holii corazón 🥰"],
+["me","Hoy es un día especial sabes moshito"],
+["her","¿Por qué moshito?"],
+["me","Porque cumples años corazón 🥹💕"],
+["me","Y te amo muchísimo mi vidita ❤️"]
+];
+
+function iniciarChat(){
+    let box = document.getElementById("chatBox");
+    box.innerHTML="";
+    mensajes.forEach((m,i)=>{
+        setTimeout(()=>{
+            let div = document.createElement("div");
+            div.className = "msg " + m[0];
+            div.innerText = m[1];
+            box.appendChild(div);
+        }, i*1500);
+    });
+}
+
+// RAZONES
+const razones = [
+"Eres lo mejor de mi vida",
+"Tu sonrisa me hace feliz",
+"Contigo todo es mejor",
+"Eres única",
+"Te amo demasiado"
+];
+
+function darRazon(){
+    let r = razones[Math.floor(Math.random()*razones.length)];
+    document.getElementById("razon").innerText = r;
+}
+
+// CONTADOR
+let inicio = new Date("2025-08-21");
+setInterval(()=>{
+    let d = Math.floor((new Date()-inicio)/(1000*60*60*24));
+    document.getElementById("contador").innerText = d + " días contigo ❤️";
+},1000);
+
+// CORAZONES
+setInterval(()=>{
+    let h = document.createElement("div");
+    h.className="heart";
+    h.innerText="❤️";
+    h.style.left=Math.random()*100+"vw";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),5000);
+},300);
+
+// GLOBOS
+setInterval(()=>{
+    let b = document.createElement("div");
+    b.className="balloon";
+    b.innerText="🎈";
+    b.style.left=Math.random()*100+"vw";
+    document.body.appendChild(b);
+    setTimeout(()=>b.remove(),6000);
+},800);
+
+// FINAL
+function final(){
+    document.getElementById("final").style.display="flex";
+}
+function cerrarFinal(){
+    document.getElementById("final").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
