@@ -326,25 +326,7 @@ setInterval(()=>{
     setTimeout(()=>b.remove(),6000);
 },800);
 
-// GLOBOS
-setInterval(()=>{
-    let b = document.createElement("div");
-    b.className="ballon1";
-    b.innerText="🎈";
-    b.style.left=Math.random()*100+"vw";
-    document.body.appendChild(b);
-    setTimeout(()=>b.remove(),6000);
-},800);
 
-// PASTEL
-setInterval(()=>{
-    let b = document.createElement("div");
-    b.className="pastel";
-    b.innerText="🎂";
-    b.style.left=Math.random()*100+"vw";
-    document.body.appendChild(b);
-    setTimeout(()=>b.remove(),6000);
-},800);
 // FINAL
 function final(){
     document.getElementById("final").style.display="flex";
