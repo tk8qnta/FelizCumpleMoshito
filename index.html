@@ -231,8 +231,8 @@ button:hover {
 
 <!-- FINAL -->
 <div id="final">
-    <h1>TE AMO ❤️</h1>
-    <p>Feliz cumpleaños mi vida 🎂</p>
+    <h1>TE AMOOOOO ❤️</h1>
+    <p>Feliz cumpleaños mi vidita 🎂</p>
     <button class="volverFinal" onclick="cerrarFinal()">⬅ Volver</button>
 </div>
 
@@ -290,7 +290,7 @@ const razones = [
 "Eres lo mejor de mi vida",
 "Tu sonrisa me hace feliz",
 "Contigo todo es mejor",
-"Eres única",
+"Eres única moshito",
 "Te amo demasiado"
 ];
 
@@ -310,7 +310,7 @@ setInterval(()=>{
 setInterval(()=>{
     let h = document.createElement("div");
     h.className="heart";
-    h.innerText="❤️";
+    h.innerText="💝";
     h.style.left=Math.random()*100+"vw";
     document.body.appendChild(h);
     setTimeout(()=>h.remove(),5000);
@@ -320,12 +320,31 @@ setInterval(()=>{
 setInterval(()=>{
     let b = document.createElement("div");
     b.className="balloon";
+    b.innerText="💫";
+    b.style.left=Math.random()*100+"vw";
+    document.body.appendChild(b);
+    setTimeout(()=>b.remove(),6000);
+},800);
+
+// GLOBOS
+setInterval(()=>{
+    let b = document.createElement("div");
+    b.className="ballon1";
     b.innerText="🎈";
     b.style.left=Math.random()*100+"vw";
     document.body.appendChild(b);
     setTimeout(()=>b.remove(),6000);
 },800);
 
+// PASTEL
+setInterval(()=>{
+    let b = document.createElement("div");
+    b.className="pastel";
+    b.innerText="🎂";
+    b.style.left=Math.random()*100+"vw";
+    document.body.appendChild(b);
+    setTimeout(()=>b.remove(),6000);
+},800);
 // FINAL
 function final(){
     document.getElementById("final").style.display="flex";
